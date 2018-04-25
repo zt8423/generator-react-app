@@ -71,8 +71,8 @@ module.exports = class extends Generator {
     );
     this.fs.copy(this.templatePath(this.platform + '/dev'), this.destinationPath('dev'));
     this.fs.copyTpl(
-      this.templatePath(this.platform + '/config/config.js'),
-      this.destinationPath('config/config.js'),
+      this.templatePath(this.platform + '/config/router_config.js'),
+      this.destinationPath('config/router_config.js'),
       {
         WebProjectName: this.props.WebProjectName
       }
