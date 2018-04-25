@@ -1,1 +1,1 @@
-react+react-router+webpack脚手架
+react+react-router+webpack脚手架工具
