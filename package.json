@@ -1,12 +1,12 @@
 {
   "name": "generator-react-app",
-  "version": "0.0.0",
-  "description": "",
-  "homepage": "",
+  "version": "0.0.1",
+  "description": "react+react-router+webpack脚手架工具",
+  "homepage": "https://github.com/zt8423/generator-react-app.git",
   "author": {
     "name": "zhangtao",
     "email": "18091198631@163.com",
-    "url": ""
+    "url": "https://github.com/zt8423/generator-react-app.git"
   },
   "files": ["generators"],
   "main": "generators/index.js",
