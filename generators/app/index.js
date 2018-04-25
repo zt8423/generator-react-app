@@ -22,6 +22,12 @@ module.exports = class extends Generator {
         name: 'WebProjectName',
         message: '请输入工程目录名',
         default: 'react-app'
+      },
+      {
+        type: 'list',
+        name: 'PlatForm',
+        message: '请选择要生成的脚手架使用平台',
+        choices: ['PC', 'Mobile']
       }
     ];
 
@@ -32,21 +38,21 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    this.platform = this.props.PlatForm;
     this.fs.copyTpl(
-      this.templatePath('package.json'),
+      this.templatePath(this.platform + '/package.json'),
       this.destinationPath('package.json'),
       {
-        Title: this.props.Title,
-        WebProjectName: this.props.WebProjectName
+        Title: this.props.Title
       }
     );
     this.fs.copyTpl(
-      this.templatePath('webpack.dev.config.js'),
+      this.templatePath(this.platform + '/webpack.dev.config.js'),
       this.destinationPath('webpack.dev.config.js'),
       {}
     );
     this.fs.copyTpl(
-      this.templatePath('webpack.prod.config.js'),
+      this.templatePath(this.platform + '/webpack.prod.config.js'),
       this.destinationPath('webpack.prod.config.js'),
       {
         Title: this.props.Title,
@@ -58,25 +64,39 @@ module.exports = class extends Generator {
       this.destinationPath('README.md'),
       {}
     );
-    this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
-    this.fs.copy(this.templatePath('config'), this.destinationPath('config'));
-    this.fs.copy(this.templatePath('dev'), this.destinationPath('dev'));
+    this.fs.copy(this.templatePath(this.platform + '/src'), this.destinationPath('src'));
+    this.fs.copy(
+      this.templatePath(this.platform + '/config'),
+      this.destinationPath('config')
+    );
+    this.fs.copy(this.templatePath(this.platform + '/dev'), this.destinationPath('dev'));
     this.fs.copyTpl(
-      this.templatePath('config/config.js'),
+      this.templatePath(this.platform + '/config/config.js'),
       this.destinationPath('config/config.js'),
       {
-        Title: this.props.Title,
         WebProjectName: this.props.WebProjectName
       }
     );
     this.fs.copyTpl(
-      this.templatePath('dev/index.html'),
+      this.templatePath(this.platform + '/dev/index.html'),
       this.destinationPath('dev/index.html'),
       {
-        Title: this.props.Title,
-        WebProjectName: this.props.WebProjectName
+        Title: this.props.Title
       }
     );
+    if (this.platform === 'Mobile') {
+      this.fs.copy(
+        this.templatePath(this.platform + '/template'),
+        this.destinationPath('template')
+      );
+      this.fs.copyTpl(
+        this.templatePath(this.platform + '/template/index.html'),
+        this.destinationPath('template/index.html'),
+        {
+          Title: this.props.Title
+        }
+      );
+    }
   }
 
   install() {

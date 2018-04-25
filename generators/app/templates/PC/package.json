@@ -1,7 +1,7 @@
 {
   "name": "zhangtao",
-  "version": "0.0.1",
-  "description": "<%= WebProjectName %>",
+  "version": "0.0.2",
+  "description": "<%= Title %>",
   "main": "",
   "scripts": {
     "dev":
