@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Router,Route,browserHistory,IndexRoute} from 'react-router';
 import App from "./App";
-import {RouterPath} from '../config/config';
+import {RouterPath} from '../config/router_config';
 import Home from './Home';
 
 export default class AppRouter extends Component {
