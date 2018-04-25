@@ -46,7 +46,7 @@ module.exports = {
         }, ],
     },
     plugins: [
-        new CleanWebpackPlugin(['<%= WebProjectName %>']), //清理QlChoice文件夹下无用的文件
+        new CleanWebpackPlugin(['<%= WebProjectName %>']), //清理打包工程文件夹下无用的文件
         new HtmlWebpackPlugin({ //创建一个index.html文件，直接引用打包的文件
             inject: true,
             template: 'template/index.html',
