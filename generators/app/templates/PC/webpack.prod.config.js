@@ -48,7 +48,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new CleanWebpackPlugin(['WebMainManageSystem']), //清理打包工程目录文件夹下无用的文件
+    new CleanWebpackPlugin(['<%= WebProjectName %>']), //清理打包工程目录文件夹下无用的文件
     new HtmlWebpackPlugin({ //创建一个index.html文件，直接引用打包的文件
       inject: false,
       title: '<%= Title %>',
