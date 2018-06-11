@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Home from '../Home';
-import {RouterPath} from '../../config/RouterContant';
+import {RouterPath} from '../../contants/RouterContant';
 
 export default class Router extends Component {
     render() {
