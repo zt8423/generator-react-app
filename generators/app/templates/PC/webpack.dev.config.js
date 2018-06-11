@@ -31,7 +31,7 @@ module.exports = {
             use: ['style-loader', 'css-loader', 'less-loader']
         }, {
             test: /\.(png|jpg|eot|svg|ttf|woff|woff2)$/,
-            use: ['url-loader?limit=8192&name=images/[hash:8].[name].[ext]']
+            use: ['url-loader?name=images/[hash:8].[name].[ext]']
         }, ],
     },
 

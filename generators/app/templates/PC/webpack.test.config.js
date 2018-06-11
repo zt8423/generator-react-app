@@ -46,7 +46,7 @@ module.exports = {
   plugins: [
     //设置全局的变量
     new webpack.DefinePlugin({
-      'build_env': JSON.stringify('prod')
+      'build_env': JSON.stringify('test')
     }),
     new CleanWebpackPlugin(['<%= WebProjectName %>']), //清理打包工程目录文件夹下无用的文件
     new HtmlWebpackPlugin({ //创建一个index.html文件，直接引用打包的文件

@@ -5,9 +5,8 @@ const yosay = require('yosay');
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
     this.log(
-      yosay(`欢迎使用 ${chalk.red('react+react-router+webpack脚手架')} 生成工具!`)
+      yosay(`欢迎使用 ${chalk.red('react+react-router(v4.x)+webpack(v4.x)脚手架')} 生成工具!`)
     );
 
     const prompts = [
@@ -60,19 +59,27 @@ module.exports = class extends Generator {
       }
     );
     this.fs.copyTpl(
+      this.templatePath(this.platform + '/webpack.test.config.js'),
+      this.destinationPath('webpack.test.config.js'),
+      {
+        Title: this.props.Title,
+        WebProjectName: this.props.WebProjectName
+      }
+    );
+    this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
       {}
     );
     this.fs.copy(this.templatePath(this.platform + '/src'), this.destinationPath('src'));
     this.fs.copy(
-      this.templatePath(this.platform + '/config'),
-      this.destinationPath('config')
+      this.templatePath(this.platform + '/contants'),
+      this.destinationPath('contants')
     );
     this.fs.copy(this.templatePath(this.platform + '/dev'), this.destinationPath('dev'));
     this.fs.copyTpl(
-      this.templatePath(this.platform + '/config/router_config.js'),
-      this.destinationPath('config/router_config.js'),
+      this.templatePath(this.platform + '/contants/RouterContant.js'),
+      this.destinationPath('contants/RouterContant.js'),
       {
         WebProjectName: this.props.WebProjectName
       }

@@ -46,19 +46,13 @@ module.exports = {
   plugins: [
     //设置全局的变量
     new webpack.DefinePlugin({
-      'build_env': JSON.stringify('prod')
+      'build_env': JSON.stringify('test')
     }),
     new CleanWebpackPlugin(['<%= WebProjectName %>']), //清理打包工程目录文件夹下无用的文件
     new HtmlWebpackPlugin({ //创建一个index.html文件，直接引用打包的文件
-      inject: false,
-      title: '<%= Title %>',
+      inject: true,
       filename: 'index.html',
-      meta: [{
-        name: 'viewport',
-        content: 'width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no'
-      }],
-      template: require('html-webpack-template'),
-      appMountId: 'root'
+      template: './template/index.html'
     }),
     new webpack.optimize.AggressiveMergingPlugin(), //合并块
     new MiniCssExtractPlugin({
